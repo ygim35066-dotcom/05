@@ -2,16 +2,30 @@
 
 int main(void)
 {
-    int n, sum = 0;
+    int a, b;
+    char op;
     
-    printf("Input a number: ");
-    scanf("%d", &n);
+    printf("Enter the calculation: ");
+    scanf("%d %c %d", &a, &op, &b);
     
-    for (int i = 1; i <= n; i++) {
-        sum += i;
+    switch (op) {
+        case '+':
+            printf("%d\n", a + b);
+            break;
+        case '-':
+            printf("%d\n", a - b);
+            break;
+        case '*':
+            printf("%d\n", a * b);
+            break;
+        case '/':
+            if (b != 0) printf("%d\n", a / b);
+            else printf("Error: Division by zero\n");
+            break;
+        default:
+            printf("Invalid operator\n");
+            break;
     }
-    
-    printf("The result is %d\n", sum);
     
     return 0;
 }
