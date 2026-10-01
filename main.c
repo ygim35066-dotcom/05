@@ -2,30 +2,23 @@
 
 int main(void)
 {
-    int a, b;
-    char op;
+    int answer = 59; 
+    int guess;
+    int trials = 0;  
     
-    printf("Enter the calculation: ");
-    scanf("%d %c %d", &a, &op, &b);
-    
-    switch (op) {
-        case '+':
-            printf("%d\n", a + b);
-            break;
-        case '-':
-            printf("%d\n", a - b);
-            break;
-        case '*':
-            printf("%d\n", a * b);
-            break;
-        case '/':
-            if (b != 0) printf("%d\n", a / b);
-            else printf("Error: Division by zero\n");
-            break;
-        default:
-            printf("Invalid operator\n");
-            break;
-    }
+    do {
+        printf("Guess a number: ");
+        scanf("%d", &guess);
+        trials++;
+        
+        if (guess > answer) {
+            printf("high!\n");
+        } else if (guess < answer) {
+            printf("low!\n");
+        } else {
+            printf("Congratulation! trials:%d\n", trials);
+        }
+    } while (guess != answer);
     
     return 0;
 }
